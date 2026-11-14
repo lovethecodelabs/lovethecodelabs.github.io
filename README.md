@@ -4,8 +4,6 @@
 **Compiled:** November 13, 2026
 **Method:** Repositories cloned and git history read directly; pull-request metadata taken from public GitHub pages. All commits under the account are authored as *Matthew &lt;info@lovethecode.net&gt;*.
 
-> **Scope note:** I couldn't load GitHub's profile and repository-list pages from this environment, so this inventory covers repositories found through search and commit history. The account may have other public repos that aren't listed here.
-
 ---
 
 ## 1. Summary
