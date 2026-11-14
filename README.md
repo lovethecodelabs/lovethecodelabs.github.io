@@ -152,16 +152,6 @@ web/t.jsp              → scratch/test page with inline JDBC
 
 ---
 
-## 5. Recommended Next Steps
-
-1. **Change the exposed database password**, then remove it from the code and git history (for example with `git filter-repo`), or archive the repo and publish a cleaned copy.
-2. **Upgrade `webapp-jsp-tomcat`** with a JNDI `DataSource`, prepared statements, JSTL escaping, a `jakarta.*` migration, a Maven `pom.xml`, and a short "how to run" section. Together these turn it into a strong Java/JSP portfolio piece.
-3. **Pin the strongest repos** on the profile: `code4recovery/tsml-angular`, `code4recovery/bmlt-angular`, and `webapp-jsp-tomcat`. Link PR #2028 and the v3.19.20 release from a profile README.
-4. **Clarify `lovethecodelabs/12-step-meeting-list`**, a non-fork copy whose history matches upstream. Mark it as a test copy, or archive it so the real fork (`-1`) is the obvious one.
-5. **Finish TSML-Ang to match tsml-ui** (map view, geolocation sorting, i18n) and propose it to Code4Recovery as an official alternative front end.
-
----
-
 ### Sources
 
 - [lovethecodelabs/webapp-jsp-tomcat](https://github.com/lovethecodelabs/webapp-jsp-tomcat)
