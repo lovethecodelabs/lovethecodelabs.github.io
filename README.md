@@ -119,6 +119,8 @@ web/t.jsp              → scratch/test page with inline JDBC
 
 **Strengths:** clear separation of controller, data, and view; reusable page fragments; per-page SEO meta tags set from the controller; content stored in the database so pages can change without redeploying; built on standard Jakarta/Javax Servlet 3.1 APIs.
 
+---
+
 <div x-data="toggle" markdown="1">
 
 <h3 x-on:click="open = !open" style="cursor: pointer;">
@@ -139,6 +141,9 @@ web/t.jsp              → scratch/test page with inline JDBC
 
 </div>
 </div>
+
+---
+
 ### 4.3 What the JSP work shows
 
 - He understands the **classic Java web stack** (Servlet lifecycle, `RequestDispatcher` forwarding, JSP includes, JDBC, `web.xml`) without relying on Spring or another framework.
