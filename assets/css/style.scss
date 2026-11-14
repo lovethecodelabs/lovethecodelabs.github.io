@@ -2,7 +2,7 @@
 ---
 
 @import "{{ site.theme }}";
-
+.container { max-width: unset!important; }
 // Controls used by the Alpine.js components in assets/js/site.js,
 // styled to match the Hacker theme.
 input[type="search"],
