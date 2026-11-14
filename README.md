@@ -119,8 +119,13 @@ web/t.jsp              → scratch/test page with inline JDBC
 
 **Strengths:** clear separation of controller, data, and view; reusable page fragments; per-page SEO meta tags set from the controller; content stored in the database so pages can change without redeploying; built on standard Jakarta/Javax Servlet 3.1 APIs.
 
-### 4.2 Code review: issues found
+<div x-data="toggle" markdown="1">
 
+<h3 x-on:click="open = !open" style="cursor: pointer;">
+  4.2 Code review: issues found <span x-text="open ? '▾' : '▸'"></span>
+</h3>
+
+<div x-show="open" x-cloak markdown="1">
 | Severity | Issue | Where | Fix |
 | --- | --- | --- | --- |
 | 🔴 **Critical** | **Database username and password are hard-coded in a public repo**, in the JDBC URL and in a commented-out block | `src/PageDAO.java` (2×), `web/t.jsp` | **Change the `matthewsb_usr` password now.** Then move credentials into a Tomcat JNDI `DataSource` in `context.xml`, which is kept out of git. Deleting the lines isn't enough, because the credentials stay in git history. |
@@ -132,6 +137,8 @@ web/t.jsp              → scratch/test page with inline JDBC
 | ⚪ Low | The three route branches are copied and pasted, and the `@WebServlet("/test")` annotation conflicts with the `web.xml` mapping | `Controller.java` | Use a route table (a map from page name to template); keep one mapping style. |
 | ⚪ Low | Uses `javax.servlet` (Tomcat ≤ 9) | — | Tomcat 10+ requires moving to `jakarta.servlet`. |
 
+</div>
+</div>
 ### 4.3 What the JSP work shows
 
 - He understands the **classic Java web stack** (Servlet lifecycle, `RequestDispatcher` forwarding, JSP includes, JDBC, `web.xml`) without relying on Spring or another framework.
