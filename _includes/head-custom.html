@@ -1,0 +1,14 @@
+<!-- start custom head snippets (overrides the Hacker theme's head-custom.html) -->
+
+<!-- Keep the theme's own color meta tags -->
+{% include head-custom-theme-colors.html %}
+
+<!-- Hide Alpine-controlled elements until Alpine has started -->
+<style>[x-cloak] { display: none !important; }</style>
+
+<!-- Site components must load BEFORE Alpine so they're registered on alpine:init.
+     Both scripts use defer, so they run in this order after the HTML is parsed. -->
+<script defer src="{{ '/assets/js/site.js' | relative_url }}"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.17.5/dist/cdn.min.js"></script>
+
+<!-- end custom head snippets -->
