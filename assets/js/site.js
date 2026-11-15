@@ -119,3 +119,44 @@ document.addEventListener('alpine:init', () => {
     },
   }));
 });
+
+// Horizontal scroll frames for tables.
+// Wraps every table in the page content in <div class="table-scroll">, so wide
+// tables scroll sideways on small screens instead of overflowing the viewport.
+// Styles: .table-scroll in assets/css/style.scss.
+(function () {
+  function labelFor(wrapper) {
+    // Name the scroll region after the nearest heading above it (for screen readers)
+    let el = wrapper;
+    while (el && el.id !== 'main_content') {
+      let prev = el.previousElementSibling;
+      while (prev) {
+        if (/^H[1-6]$/.test(prev.tagName)) return prev.textContent.trim() + ' (table)';
+        const inner = prev.querySelector && prev.querySelector('h1,h2,h3,h4,h5,h6');
+        if (inner) return inner.textContent.trim() + ' (table)';
+        prev = prev.previousElementSibling;
+      }
+      el = el.parentElement;
+    }
+    return 'Table';
+  }
+
+  function wrapTables() {
+    document.querySelectorAll('#main_content table').forEach((table) => {
+      if (table.parentElement.classList.contains('table-scroll')) return;
+      const wrapper = document.createElement('div');
+      wrapper.className = 'table-scroll';
+      wrapper.tabIndex = 0; // lets keyboard users scroll it with the arrow keys
+      wrapper.setAttribute('role', 'region');
+      table.before(wrapper);
+      wrapper.append(table);
+      wrapper.setAttribute('aria-label', labelFor(wrapper));
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', wrapTables);
+  } else {
+    wrapTables();
+  }
+})();

@@ -167,3 +167,56 @@ a.btn-sheen:visited {
   .btn-sheen::before { animation: none; opacity: 0; }
   .btn-sheen, .btn-sheen:hover { transition: none; transform: none; }
 }
+
+// ---------------------------------------------------------------------------
+// Horizontal scroll frames for tables (wrapper added by assets/js/site.js).
+// On narrow screens a wide table scrolls sideways inside its frame. Green edge
+// shadows show when there's more to scroll; they disappear at each end.
+// ---------------------------------------------------------------------------
+.table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  margin: 0 0 20px 0;
+
+  // Scroll-shadow trick: the "local" covers move with the content and hide the
+  // "scroll" shadows when you reach either end.
+  background:
+    linear-gradient(to right, #151515 30%, rgba(21, 21, 21, 0)) left center / 40px 100% no-repeat local,
+    linear-gradient(to left, #151515 30%, rgba(21, 21, 21, 0)) right center / 40px 100% no-repeat local,
+    radial-gradient(farthest-side at 0 50%, rgba(181, 232, 83, 0.35), rgba(181, 232, 83, 0)) left center / 14px 100% no-repeat scroll,
+    radial-gradient(farthest-side at 100% 50%, rgba(181, 232, 83, 0.35), rgba(181, 232, 83, 0)) right center / 14px 100% no-repeat scroll;
+
+  // Slim scrollbar in theme colors
+  scrollbar-width: thin;
+  scrollbar-color: #b5e853 #1b1b1b;
+  &::-webkit-scrollbar { height: 8px; }
+  &::-webkit-scrollbar-track { background: #1b1b1b; }
+  &::-webkit-scrollbar-thumb { background: #4a5d22; border-radius: 4px; }
+  &::-webkit-scrollbar-thumb:hover { background: #b5e853; }
+
+  &:focus-visible {
+    outline: 1px dashed #b5e853;
+    outline-offset: 2px;
+  }
+
+  > table {
+    margin: 0;
+  }
+
+  // Each column keeps a readable minimum width. Tables with few columns still
+  // fit a phone screen; tables with many columns scroll instead of squashing.
+  th,
+  td {
+    min-width: 9rem;
+  }
+
+  // First column (usually a name or label) stays on one line
+  th:first-child,
+  td:first-child {
+    min-width: 0;
+    white-space: nowrap;
+  }
+}
