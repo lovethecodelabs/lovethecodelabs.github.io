@@ -17,8 +17,7 @@
 
 ---
 
-<div x-data="{ shown: false }" x-intersect.once="shown = true">
-  <div x-show="shown" x-transition.duration.700ms>
+<div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
 ## 2. Repository Inventory
 
 | Repository | Owner | Type | Language | Commits by Matthew | Activity |
@@ -29,11 +28,9 @@
 | [`tsml-angular`](https://github.com/code4recovery/tsml-angular) | **code4recovery** | Original | TypeScript (Angular) | 20 of 20 | Oct 2023 → Oct 2026 |
 | [`bmlt-angular`](https://github.com/code4recovery/bmlt-angular) | **code4recovery** | Original | TypeScript (Angular) | 5 of 5 | Oct 2026 |
 </div>
-</div>
 ---
 
-<div x-data="{ shown: false }" x-intersect.once="shown = true">
-  <div x-show="shown" x-transition.duration.700ms>
+<div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
 ## 3. Code4Recovery Contributions
 
 [Code4Recovery](https://code4recovery.org/) is a volunteer group that builds open-source tools for recovery fellowships (AA, NA, Al-Anon, and others). Its main project is the **12 Step Meeting List** WordPress plugin.
@@ -69,9 +66,7 @@ The change was first tested in his own copy as PRs #17 and #18 (`feature/better-
 
 **Maintainer role:** on Nov 7, 2026, `lovethecodelabs` was one of five requested reviewers on [PR #2048, "prepare release 3.19.20"](https://github.com/code4recovery/12-step-meeting-list/pull/2048), along with the project's core contributors.
 </div>
-</div>
-<div x-data="{ shown: false }" x-intersect.once="shown = true">
-  <div x-show="shown" x-transition.duration.700ms>
+<div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
 ### 3.2 `code4recovery/tsml-angular`: TSML-Ang
 
 An Angular 22 version of Code4Recovery's React meeting finder, [`tsml-ui`](https://github.com/code4recovery/tsml-ui). Matthew wrote all 20 commits.
@@ -83,9 +78,7 @@ An Angular 22 version of Code4Recovery's React meeting finder, [`tsml-ui`](https
 - **Size:** 25 source files, about 1,200 lines of TypeScript.
 - **Not built yet:** map view, distance sorting, translations.
 </div>
-</div>
-<div x-data="{ shown: false }" x-intersect.once="shown = true">
-  <div x-show="shown" x-transition.duration.700ms>
+<div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
 ### 3.3 `code4recovery/bmlt-angular`: NA meeting finder
 
 A version of TSML-Ang for Narcotics Anonymous, built for **BMLT** (Basic Meeting List Toolbox) root servers. Matthew wrote all 5 commits, Oct 4–5, 2026.
@@ -93,9 +86,8 @@ A version of TSML-Ang for Narcotics Anonymous, built for **BMLT** (Basic Meeting
 - Configured for the Southern California NA BMLT feed on todayna.org, and deployed at `matthews.help/na/`.
 - `models/bmlt.ts` converts BMLT records into the Meeting Guide format (for example, `weekday_tinyint` 1–7 becomes day 0–6). Meeting-type labels come from the server's own format list (`get_used_formats=1`), with built-in NA labels as a fallback.
 - Ships deployment files: `deploy/deploy.sh` and `deploy/nginx-na.conf`.
-
-<div x-data="{ shown: false }" x-intersect.once="shown = true">
-  <div x-show="shown" x-transition.duration.700ms>
+</div>
+<div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
 ### 3.4 What the Code4Recovery work shows
 
 1. **He follows the project through its history**, from the Meeting Guide days in 2017 to the current Code4Recovery organization in 2026.
@@ -103,19 +95,16 @@ A version of TSML-Ang for Narcotics Anonymous, built for **BMLT** (Basic Meeting
 3. **His recent upstream work targets SEO and structured data** (schema.org / JSON-LD), which fits his rank-tracking and web-consulting background.
 4. **He follows the project's contribution workflow:** test in a copy, branch, open a PR from a fork, get review, ship in a tagged release.
 </div>
-</div>
 ---
 
-<div x-data="{ shown: false }" x-intersect.once="shown = true">
-  <div x-show="shown" x-transition.duration.700ms>
+<div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
 ## 4. JSP / Java Programming: `webapp-jsp-tomcat`
 
 > *"This website was build using Java/JSP/Tomcat & a MySQL database. It uses the MVC Paradigm…"* (repo README)
 
 A small, hand-written content site for "Matthew's Business". It uses no framework: just Servlets, JSP, and JDBC. The code headers date from **Sep 2021**, and it was uploaded to GitHub in Jan 2023. The README says it runs on **Tomcat 8.5** at `matthews.business` and can be deployed as is or packaged as a `.war` through Tomcat Manager.
 
-<div x-data="{ shown: false }" x-intersect.once="shown = true">
-  <div x-show="shown" x-transition.duration.700ms>
+<div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
 ### 4.1 Architecture
 
 ```
@@ -137,10 +126,8 @@ web/t.jsp              → scratch/test page with inline JDBC
 
 **Strengths:** clear separation of controller, data, and view; reusable page fragments; per-page SEO meta tags set from the controller; content stored in the database so pages can change without redeploying; built on standard Jakarta/Javax Servlet 3.1 APIs.
 </div>
-</div>
 ---
-<div x-data="{ shown: false }" x-intersect.once="shown = true">
-  <div x-show="shown" x-transition.duration.700ms>
+<div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
 <div x-data="toggle" markdown="1">
 
 <h3 x-on:click="open = !open" style="cursor: pointer;">
@@ -162,17 +149,14 @@ web/t.jsp              → scratch/test page with inline JDBC
 </div>
 </div>
 </div>
-</div>
 ---
 
-<div x-data="{ shown: false }" x-intersect.once="shown = true">
-  <div x-show="shown" x-transition.duration.700ms>
+<div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
 ### 4.3 What the JSP work shows
 
 - He understands the **classic Java web stack** (Servlet lifecycle, `RequestDispatcher` forwarding, JSP includes, JDBC, `web.xml`) without relying on Spring or another framework.
 - He built and ran his own Tomcat and MariaDB on his own server, which matches his background in self-hosted infrastructure.
 - It's the only public Java/JSP code found under this account, and it's small (one controller, about 350 lines of Java). It's best described as a working, self-built portfolio piece, not production-grade enterprise Java. Fixing the items above, especially the credentials, before pointing employers to it would make it a stronger example for **Java-developer roles**.
-</div>
 </div>
 ---
 
