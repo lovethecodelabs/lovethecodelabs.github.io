@@ -1,0 +1,45 @@
+<!-- Contact modal. Use in any page with: {% include contact-modal.html %}
+     Optional: {% include contact-modal.html label="Hire Matthew" %} -->
+<div class="contact-modal" x-data="contactModal" x-id="['contact-title']">
+  <button type="button" class="btn-sheen" x-on:click="show()" x-bind:aria-expanded="open" aria-haspopup="dialog">
+    <span class="btn-sheen__label">{{ include.label | default: "Contact Matthew" }}</span>
+  </button>
+  <template x-teleport="body">
+    <!-- x-show.important: Tailwind utilities are !important here, so the "flex"
+         class would otherwise override the display:none that x-show sets. -->
+    <div x-show.important="open" x-cloak
+         x-trap.inert.noscroll="open"
+         x-on:keydown.escape.window="hide()"
+         class="fixed inset-0 z-50 flex items-center justify-center p-4 font-mono [&_button]:font-[inherit]"
+         role="dialog" aria-modal="true" x-bind:aria-labelledby="$id('contact-title')">
+      <div x-show="open"
+           x-transition:enter="transition-opacity duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+           x-transition:leave="transition-opacity duration-150" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+           x-on:click="hide()"
+           class="absolute inset-0 bg-black/75 backdrop-blur-sm"></div>
+      <div x-show="open"
+           x-transition:enter="transition duration-200 ease-out" x-transition:enter-start="opacity-0 scale-95 translate-y-2" x-transition:enter-end="opacity-100 scale-100 translate-y-0"
+           x-transition:leave="transition duration-150 ease-in" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95"
+           class="relative w-full max-w-md rounded-xl border border-edge bg-panel p-6 shadow-2xl shadow-black/60">
+        <button type="button" x-on:click="hide()" aria-label="Close"
+                class="absolute top-3 right-3 cursor-pointer rounded-md bg-transparent px-2 py-1 text-xl leading-none text-gray-400 hover:text-white">&times;</button>
+        <h2 x-bind:id="$id('contact-title')" class="m-0 mb-2 text-2xl text-hacker">Contact Matthew</h2>
+        <p class="m-0 mb-5 text-sm text-gray-300">Feel free to contact Matthew about any matters of web development: a project, this work, or a role.</p>
+        <div class="mb-5 flex items-center gap-2 rounded-lg border border-edge bg-black/40 px-3 py-2">
+          <span class="flex-1 break-all text-hacker" x-text="email"></span>
+          <button type="button" x-on:click="copy()"
+                  class="cursor-pointer rounded-md border border-edge bg-transparent px-3 py-1 text-xs text-gray-200 hover:border-hacker hover:text-hacker"
+                  x-text="copied ? 'Copied!' : 'Copy'"></button>
+        </div>
+        <div class="flex flex-wrap justify-end gap-3">
+          <button type="button" x-on:click="hide()"
+                  class="cursor-pointer rounded-md border border-edge bg-transparent px-4 py-2 text-sm text-gray-300 hover:text-white">Close</button>
+          <a x-bind:href="mailto" class="btn-sheen no-underline">
+            <span class="btn-sheen__label">Send email</span>
+          </a>
+        </div>
+        <span class="sr-only" aria-live="polite" x-text="copied ? 'Email address copied' : ''"></span>
+      </div>
+    </div>
+  </template>
+</div>

@@ -80,4 +80,42 @@ document.addEventListener('alpine:init', () => {
 		io.observe(el);
 	  },
 	}));
+
+  // Contact modal: see _includes/contact-modal.html.
+  // The address is assembled here instead of written in the HTML, which keeps it
+  // away from simple scrapers that harvest emails from page source.
+  Alpine.data('contactModal', () => ({
+    open: false,
+    copied: false,
+    email: ['info', 'lovethecode.net'].join('@'),
+
+    get mailto() {
+      return 'mailto:' + this.email + '?subject=' + encodeURIComponent('Hello from your GitHub page');
+    },
+
+    show() {
+      this.open = true;
+    },
+
+    hide() {
+      this.open = false;
+      this.copied = false;
+    },
+
+    async copy() {
+      try {
+        await navigator.clipboard.writeText(this.email);
+      } catch (e) {
+        // Fallback for browsers without the async clipboard API
+        const t = document.createElement('textarea');
+        t.value = this.email;
+        document.body.appendChild(t);
+        t.select();
+        document.execCommand('copy');
+        t.remove();
+      }
+      this.copied = true;
+      setTimeout(() => (this.copied = false), 2000);
+    },
+  }));
 });
