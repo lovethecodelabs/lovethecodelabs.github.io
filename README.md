@@ -3,7 +3,70 @@
 **Focus:** Code4Recovery contributions and JSP/Java programming
 **Compiled:** November 13, 2026
 **Method:** Repositories cloned and git history read directly; pull-request metadata taken from public GitHub pages. All commits under the account are authored as *Matthew &lt;info@lovethecode.net&gt;*.
- 
+ <!-- Alpine.js + Tailwind CSS Modal -->
+<div x-data="{ open: false }" @keydown.escape.window="open = false">
+  <!-- Trigger Button -->
+  <button 
+    @click="open = true" 
+    class="rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-500">
+    Open Modal
+  </button>
+
+  <!-- Modal Backdrop & Container -->
+  <div 
+    x-show="open" 
+    x-cloak
+    x-transition:enter="transition ease-out duration-200"
+    x-transition:enter-start="opacity-0"
+    x-transition:enter-end="opacity-100"
+    x-transition:leave="transition ease-in duration-150"
+    x-transition:leave-start="opacity-100"
+    x-transition:leave-end="opacity-0"
+    class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title">
+
+    <!-- Modal Panel -->
+    <div 
+      @click.outside="open = false"
+      x-transition:enter="transition ease-out duration-200"
+      x-transition:enter-start="opacity-0 scale-95"
+      x-transition:enter-end="opacity-100 scale-100"
+      x-transition:leave="transition ease-in duration-150"
+      x-transition:leave-start="opacity-100 scale-100"
+      x-transition:leave-end="opacity-0 scale-95"
+      class="w-full max-w-md rounded-lg bg-white p-6 shadow-xl">
+
+      <div class="flex items-center justify-between border-b pb-3">
+        <h3 id="modal-title" class="text-lg font-semibold text-gray-900">
+          Modal Title
+        </h3>
+        <button @click="open = false" class="text-gray-400 hover:text-gray-600" aria-label="Close">
+          ✕
+        </button>
+      </div>
+
+      <div class="mt-4 text-sm text-gray-600">
+        Feel free to Contact Matthew regarding any matters of web development, at info@lovethecode.net.
+      </div>
+
+      <div class="mt-6 flex justify-end gap-2">
+        <button 
+          @click="open = false" 
+          class="rounded-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">
+          Cancel
+        </button>
+        <button 
+          @click="open = false" 
+          class="rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-500">
+          Confirm
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
 ---
  
 ## 1. Summary
