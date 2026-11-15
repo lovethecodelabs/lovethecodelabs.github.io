@@ -17,7 +17,7 @@
  
 ---
  
-<div x-data="reveal" markdown="1">
+<div x-data="reveal" markdown="1" x-intersect:leave="shown = false">
 ## 2. Repository Inventory
  
 | Repository | Owner | Type | Language | Commits by Matthew | Activity |
@@ -31,7 +31,7 @@
 </div>
 ---
  
-<div x-data="reveal" markdown="1">
+<div x-data="reveal" markdown="1" x-intersect:leave="shown = false">
 ## 3. Code4Recovery Contributions
  
 [Code4Recovery](https://code4recovery.org/) is a volunteer group that builds open-source tools for recovery fellowships (AA, NA, Al-Anon, and others). Its main project is the **12 Step Meeting List** WordPress plugin.
@@ -39,7 +39,7 @@
 </div>
 ---
  
-<div x-data="reveal" markdown="1">
+<div x-data="reveal" markdown="1" x-intersect:leave="shown = false">
 ### 3.1 12 Step Meeting List (TSML): upstream contributions
  
 **2017: Meeting Guide era (the project's earlier home before Code4Recovery)**
@@ -74,7 +74,7 @@ The change was first tested in his own copy as PRs #17 and #18 (`feature/better-
 </div>
 ---
  
-<div x-data="reveal" markdown="1">
+<div x-data="reveal" markdown="1" x-intersect:leave="shown = false">
 ### 3.2 `code4recovery/tsml-angular`: TSML-Ang
  
 An Angular 22 version of Code4Recovery's React meeting finder, [`tsml-ui`](https://github.com/code4recovery/tsml-ui). Matthew wrote all 20 commits.
@@ -88,7 +88,7 @@ An Angular 22 version of Code4Recovery's React meeting finder, [`tsml-ui`](https
 </div>
 ---
  
-<div x-data="reveal" markdown="1">
+<div x-data="reveal" markdown="1" x-intersect:leave="shown = false">
 ### 3.3 `code4recovery/bmlt-angular`: NA meeting finder
  
 A version of TSML-Ang for Narcotics Anonymous, built for **BMLT** (Basic Meeting List Toolbox) root servers. Matthew wrote all 5 commits, Oct 4–5, 2026.
@@ -99,7 +99,7 @@ A version of TSML-Ang for Narcotics Anonymous, built for **BMLT** (Basic Meeting
 </div>
 ---
  
-<div x-data="reveal" markdown="1">
+<div x-data="reveal" markdown="1" x-intersect:leave="shown = false">
 ### 3.4 What the Code4Recovery work shows
  
 1. **He follows the project through its history**, from the Meeting Guide days in 2017 to the current Code4Recovery organization in 2026.
@@ -109,7 +109,7 @@ A version of TSML-Ang for Narcotics Anonymous, built for **BMLT** (Basic Meeting
 </div>
 ---
  
-<div x-data="reveal" markdown="1">
+<div x-data="reveal" markdown="1" x-intersect:leave="shown = false">
 ## 4. JSP / Java Programming: `webapp-jsp-tomcat`
  
 > *"This website was build using Java/JSP/Tomcat & a MySQL database. It uses the MVC Paradigm…"* (repo README)
@@ -119,7 +119,7 @@ A small, hand-written content site for "Matthew's Business". It uses no framewor
 </div>
 ---
  
-<div x-data="reveal" markdown="1">
+<div x-data="reveal" markdown="1" x-intersect:leave="shown = false">
 ### 4.1 Architecture
  
 ```
@@ -144,7 +144,7 @@ web/t.jsp              → scratch/test page with inline JDBC
 </div>
 ---
  
-<div x-data="reveal" markdown="1">
+<div x-data="reveal" markdown="1" x-intersect:leave="shown = false">
 ### 4.2 What the JSP work shows
  
 - He understands the **classic Java web stack** (Servlet lifecycle, `RequestDispatcher` forwarding, JSP includes, JDBC, `web.xml`) without relying on Spring or another framework.
