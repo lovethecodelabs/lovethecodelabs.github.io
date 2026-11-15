@@ -1,12 +1,8 @@
-<!-- Contact modal. Use in any page with: {% include contact-modal.html %}
-     Optional: {% include contact-modal.html label="Hire Matthew" %} -->
 <div class="contact-modal" x-data="contactModal" x-id="['contact-title']">
   <button type="button" class="btn-sheen" x-on:click="show()" x-bind:aria-expanded="open" aria-haspopup="dialog">
     <span class="btn-sheen__label">{{ include.label | default: "Contact Matthew" }}</span>
   </button>
   <template x-teleport="body">
-    <!-- x-show.important: Tailwind utilities are !important here, so the "flex"
-         class would otherwise override the display:none that x-show sets. -->
     <div x-show.important="open" x-cloak
          x-trap.inert.noscroll="open"
          x-on:keydown.escape.window="hide()"
