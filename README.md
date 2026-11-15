@@ -183,6 +183,7 @@ web/t.jsp              → scratch/test page with inline JDBC
 - It's the only public Java/JSP code found under this account, and it's small (one controller, about 350 lines of Java). It's best described as a working, self-built portfolio piece, not production-grade enterprise Java. Fixing the items above, especially the credentials, before pointing employers to it would make it a stronger example for **Java-developer roles**.
 
 </div>
+
 ---
 
 ### Sources
