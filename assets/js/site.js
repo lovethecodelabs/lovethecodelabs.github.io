@@ -60,4 +60,20 @@ document.addEventListener('alpine:init', () => {
   Alpine.data('toggle', (startOpen = false) => ({
     open: startOpen,
   }));
+// Fades a section in the first time it scrolls into view.
+// Usage in Markdown: <div x-data="reveal" markdown="1"> ... </div>
+	Alpine.data('reveal', () => ({
+	  init() {
+		const el = this.$el;
+		if (!('IntersectionObserver' in window)) return; // old browsers: just show it
+		el.classList.add('reveal');
+		const io = new IntersectionObserver(([entry]) => {
+		  if (entry.isIntersecting) {
+			el.classList.add('is-shown');
+			io.disconnect();
+		  }
+		}, { threshold: 0.1 });
+		io.observe(el);
+	  },
+	}));  
 });
