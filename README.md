@@ -145,24 +145,7 @@ web/t.jsp              → scratch/test page with inline JDBC
 ---
  
 <div x-data="reveal" markdown="1">
-### 4.2 Code review: issues found
- 
-| Severity | Issue | Where | Fix |
-| --- | --- | --- | --- |
-| 🔴 **Critical** | **Database username and password are hard-coded in a public repo**, in the JDBC URL and in a commented-out block | `src/PageDAO.java` (2×), `web/t.jsp` | **Change the `matthewsb_usr` password now.** Then move credentials into a Tomcat JNDI `DataSource` in `context.xml`, which is kept out of git. Deleting the lines isn't enough, because the credentials stay in git history. |
-| 🟠 High | SQL is built by joining strings together. The prepared-statement version is commented out. | `PageDAO.queryPageContent` | Use `?` placeholders with `setString()`. Inputs are fixed values today, but the pattern is unsafe if routes become dynamic. |
-| 🟠 High | Request attributes are printed without HTML escaping (`<%= … %>`) | All views | Use JSTL `<c:out>` or `fn:escapeXml`. |
-| 🟡 Medium | Bug in `Page.setPageName(String firstName)`: it assigns `this.pageName = pageName`, so the value never changes | `src/Page.java` | Rename the parameter to `pageName`. |
-| 🟡 Medium | A new DB connection is opened for every content block, three per page | `PageDAO` | Use a pooled `DataSource`, or fetch all blocks for a page in one query. |
-| 🟡 Medium | `request.getAttribute("Name").equals(...)` throws a NullPointerException on routes that don't set `Name` (for example `t`) | `header.jsp`, `footer.jsp` | Write `"index".equals(request.getAttribute("Name"))`. |
-| ⚪ Low | The three route branches are copied and pasted, and the `@WebServlet("/test")` annotation conflicts with the `web.xml` mapping | `Controller.java` | Use a route table (a map from page name to template); keep one mapping style. |
-| ⚪ Low | Uses `javax.servlet` (Tomcat ≤ 9) | — | Tomcat 10+ requires moving to `jakarta.servlet`. |
- 
-</div>
----
- 
-<div x-data="reveal" markdown="1">
-### 4.3 What the JSP work shows
+### 4.2 What the JSP work shows
  
 - He understands the **classic Java web stack** (Servlet lifecycle, `RequestDispatcher` forwarding, JSP includes, JDBC, `web.xml`) without relying on Spring or another framework.
 - He built and ran his own Tomcat and MariaDB on his own server, which matches his background in self-hosted infrastructure.
