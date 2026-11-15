@@ -39,6 +39,12 @@
 
 [Code4Recovery](https://code4recovery.org/) is a volunteer group that builds open-source tools for recovery fellowships (AA, NA, Al-Anon, and others). Its main project is the **12 Step Meeting List** WordPress plugin.
 
+</div>
+
+---
+
+<div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
+
 ### 3.1 12 Step Meeting List (TSML): upstream contributions
 
 **2017: Meeting Guide era (the project's earlier home before Code4Recovery)**
@@ -160,7 +166,7 @@ web/t.jsp              → scratch/test page with inline JDBC
 <div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
 
 
-###  4.2 Code review: issues found:
+### 4.2 Code review: issues found:
 
 
 
