@@ -60,20 +60,24 @@ document.addEventListener('alpine:init', () => {
   Alpine.data('toggle', (startOpen = false) => ({
     open: startOpen,
   }));
-// Fades a section in the first time it scrolls into view.
+// Fades a section in as it scrolls into view, and back out as it leaves.
 // Usage in Markdown: <div x-data="reveal" markdown="1"> ... </div>
-	Alpine.data('reveal', () => ({
+// To fade in once and stay visible: <div x-data="reveal(true)" markdown="1">
+	Alpine.data('reveal', (once = false) => ({
 	  init() {
 		const el = this.$el;
 		if (!('IntersectionObserver' in window)) return; // old browsers: just show it
 		el.classList.add('reveal');
 		const io = new IntersectionObserver(([entry]) => {
-		  if (entry.isIntersecting) {
-			el.classList.add('is-shown');
-			io.disconnect();
-		  }
-		}, { threshold: 0.1 });
+		  el.classList.toggle('is-shown', entry.isIntersecting);
+		  if (once && entry.isIntersecting) io.disconnect();
+		}, {
+		  // Trim 10% off the top and bottom of the viewport, so a section starts
+		  // fading just before it scrolls off. Works for sections of any height.
+		  rootMargin: '-10% 0px -10% 0px',
+		  threshold: 0,
+		});
 		io.observe(el);
 	  },
-	}));  
+	}));
 });
