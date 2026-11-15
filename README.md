@@ -18,6 +18,7 @@
 ---
 
 <div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
+
 ## 2. Repository Inventory
 
 | Repository | Owner | Type | Language | Commits by Matthew | Activity |
@@ -33,6 +34,7 @@
 ---
 
 <div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
+
 ## 3. Code4Recovery Contributions
 
 [Code4Recovery](https://code4recovery.org/) is a volunteer group that builds open-source tools for recovery fellowships (AA, NA, Al-Anon, and others). Its main project is the **12 Step Meeting List** WordPress plugin.
@@ -73,6 +75,7 @@ The change was first tested in his own copy as PRs #17 and #18 (`feature/better-
 ---
 
 <div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
+
 ### 3.2 `code4recovery/tsml-angular`: TSML-Ang
 
 An Angular 22 version of Code4Recovery's React meeting finder, [`tsml-ui`](https://github.com/code4recovery/tsml-ui). Matthew wrote all 20 commits.
@@ -89,6 +92,7 @@ An Angular 22 version of Code4Recovery's React meeting finder, [`tsml-ui`](https
 ---
 
 <div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
+
 ### 3.3 `code4recovery/bmlt-angular`: NA meeting finder
 
 A version of TSML-Ang for Narcotics Anonymous, built for **BMLT** (Basic Meeting List Toolbox) root servers. Matthew wrote all 5 commits, Oct 4–5, 2026.
@@ -102,6 +106,7 @@ A version of TSML-Ang for Narcotics Anonymous, built for **BMLT** (Basic Meeting
 ---
 
 <div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
+
 ### 3.4 What the Code4Recovery work shows
 
 1. **He follows the project through its history**, from the Meeting Guide days in 2017 to the current Code4Recovery organization in 2026.
@@ -114,6 +119,7 @@ A version of TSML-Ang for Narcotics Anonymous, built for **BMLT** (Basic Meeting
 ---
 
 <div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
+
 ## 4. JSP / Java Programming: `webapp-jsp-tomcat`
 
 > *"This website was build using Java/JSP/Tomcat & a MySQL database. It uses the MVC Paradigm…"* (repo README)
@@ -125,6 +131,7 @@ A small, hand-written content site for "Matthew's Business". It uses no framewor
 ---
 
 <div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
+
 ### 4.1 Architecture
 
 ```
@@ -151,7 +158,6 @@ web/t.jsp              → scratch/test page with inline JDBC
 ---
 
 <div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
-<div x-data="toggle" markdown="1">
 
 
 ###  4.2 Code review: issues found:
@@ -174,6 +180,7 @@ web/t.jsp              → scratch/test page with inline JDBC
 ---
 
 <div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
+
 ### 4.3 What the JSP work shows
 
 - He understands the **classic Java web stack** (Servlet lifecycle, `RequestDispatcher` forwarding, JSP includes, JDBC, `web.xml`) without relying on Spring or another framework.
@@ -181,6 +188,7 @@ web/t.jsp              → scratch/test page with inline JDBC
 - It's the only public Java/JSP code found under this account, and it's small (one controller, about 350 lines of Java). It's best described as a working, self-built portfolio piece, not production-grade enterprise Java. Fixing the items above, especially the credentials, before pointing employers to it would make it a stronger example for **Java-developer roles**.
 
 </div>
+
 ---
 
 ### Sources
