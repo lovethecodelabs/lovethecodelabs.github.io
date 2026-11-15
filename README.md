@@ -72,6 +72,8 @@ The change was first tested in his own copy as PRs #17 and #18 (`feature/better-
 
 </div>
 
+---
+
 <div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
 
 ### 3.2 `code4recovery/tsml-angular`: TSML-Ang
@@ -87,6 +89,8 @@ An Angular 22 version of Code4Recovery's React meeting finder, [`tsml-ui`](https
 
 </div>
 
+---
+
 <div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
 
 ### 3.3 `code4recovery/bmlt-angular`: NA meeting finder
@@ -98,6 +102,8 @@ A version of TSML-Ang for Narcotics Anonymous, built for **BMLT** (Basic Meeting
 - Ships deployment files: `deploy/deploy.sh` and `deploy/nginx-na.conf`.
 
 </div>
+
+---
 
 <div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
 
@@ -119,6 +125,10 @@ A version of TSML-Ang for Narcotics Anonymous, built for **BMLT** (Basic Meeting
 > *"This website was build using Java/JSP/Tomcat & a MySQL database. It uses the MVC Paradigm…"* (repo README)
 
 A small, hand-written content site for "Matthew's Business". It uses no framework: just Servlets, JSP, and JDBC. The code headers date from **Sep 2021**, and it was uploaded to GitHub in Jan 2023. The README says it runs on **Tomcat 8.5** at `matthews.business` and can be deployed as is or packaged as a `.war` through Tomcat Manager.
+
+</div>
+
+---
 
 <div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
 
