@@ -1,0 +1,238 @@
+From bea2bb8dca609b92f028f4a7f5d0fa537309b856 Mon Sep 17 00:00:00 2001
+From: Matthew <info@lovethecode.net>
+Date: Sun, 15 Nov 2026 15:54:17 -0800
+Subject: [PATCH] Tabbed home page: Overview, GitHub, Contact
+
+- index.md: x-data="{ tab: 'overview' }" wrapper with x-show panels;
+  GitHub tab includes README.md, Contact tab holds the contact modal
+- assets/js/site.js: tabFromHash() keeps the tab in the URL and opens the
+  right tab for links to headings inside it
+- assets/css/style.scss: terminal-style tab bar, fade-in panels;
+  top-align table cells inside scroll frames
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01RGy3ULDCoVUfueM3gna2JF
+---
+ assets/css/style.scss | 72 ++++++++++++++++++++++++++++++++++++++--
+ assets/js/site.js     | 20 ++++++++++-
+ index.md              | 77 +++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 165 insertions(+), 4 deletions(-)
+ create mode 100644 index.md
+
+diff --git a/assets/css/style.scss b/assets/css/style.scss
+index ad8a4c6..e6a7a8e 100644
+--- a/assets/css/style.scss
++++ b/assets/css/style.scss
+@@ -6,7 +6,7 @@
+ // Controls used by the Alpine.js components in assets/js/site.js,
+ // styled to match the Hacker theme.
+ input[type="search"],
+-#main_content button:not(.btn-sheen) {
++#main_content button:not(.btn-sheen):not(.tab-btn):not(.tab-link) {
+   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+   font-size: 14px;
+   color: #eaeaea;
+@@ -28,7 +28,7 @@ input[type="search"] {
+   }
+ }
+ 
+-#main_content button:not(.btn-sheen) {
++#main_content button:not(.btn-sheen):not(.tab-btn):not(.tab-link) {
+   cursor: pointer;
+   color: #b5e853;
+ 
+@@ -211,6 +211,7 @@ a.btn-sheen:visited {
+   th,
+   td {
+     min-width: 9rem;
++    vertical-align: top;   // labels line up with the first line of long cells
+   }
+ 
+   // First column (usually a name or label) stays on one line
+@@ -219,4 +220,69 @@ a.btn-sheen:visited {
+     min-width: 0;
+     white-space: nowrap;
+   }
+-}
+\ No newline at end of file
++}
++// ---------------------------------------------------------------------------
++// Tabs on the home page (index.md)
++// ---------------------------------------------------------------------------
++.tab-list {
++  display: flex;
++  gap: 4px;
++  margin: 0 0 24px 0;
++  border-bottom: 1px dashed #b5e853;
++  overflow-x: auto;          // tabs scroll instead of wrapping on very small screens
++  scrollbar-width: none;
++  &::-webkit-scrollbar { display: none; }
++}
++
++.tab-btn {
++  flex: 0 0 auto;
++  margin: 0 0 -1px 0;
++  padding: 10px 18px;
++  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
++  font-size: 15px;
++  color: #999;
++  background: transparent;
++  border: 1px solid transparent;
++  border-bottom: none;
++  border-radius: 4px 4px 0 0;
++  cursor: pointer;
++  transition: color 0.15s ease, background 0.15s ease;
++
++  &::before { content: "$ "; color: #555; }
++
++  &:hover { color: #eaeaea; }
++
++  &.is-active {
++    color: #b5e853;
++    background: #1b1b1b;
++    border-color: #b5e853;
++    border-style: dashed;
++    border-bottom: 1px solid #1b1b1b;   // merges the active tab into the panel
++    &::before { color: #b5e853; }
++  }
++
++  &:focus-visible {
++    outline: 2px solid #b5e853;
++    outline-offset: -2px;
++  }
++}
++
++.tab-link {
++  padding: 0;
++  font: inherit;
++  color: #63c0f5;
++  background: none;
++  border: none;
++  cursor: pointer;
++  text-decoration: underline;
++  &:hover { color: #b5e853; }
++}
++
++@media (prefers-reduced-motion: no-preference) {
++  .tab-panel { animation: tab-fade-in 0.2s ease-out; }
++}
++
++@keyframes tab-fade-in {
++  from { opacity: 0; transform: translateY(4px); }
++  to   { opacity: 1; transform: none; }
++}
+diff --git a/assets/js/site.js b/assets/js/site.js
+index d6ba7fa..b0068bc 100644
+--- a/assets/js/site.js
++++ b/assets/js/site.js
+@@ -159,4 +159,22 @@ document.addEventListener('alpine:init', () => {
+   } else {
+     wrapTables();
+   }
+-})();
+\ No newline at end of file
++})();
++
++// Tabs (index.md): pick the tab named in the URL hash.
++// - #overview, #github, #contact  -> that tab
++// - #some-heading inside a tab    -> open that tab, then scroll to the heading
++// - anything else / no hash       -> keep the current tab
++window.tabFromHash = function (root, current) {
++  const id = decodeURIComponent(location.hash.slice(1));
++  if (!id) return current;
++  if (root.querySelector('[data-tab="' + CSS.escape(id) + '"]')) return id;
++  const target = document.getElementById(id);
++  const panel = target && target.closest('[data-tab]');
++  if (panel && root.contains(panel)) {
++    // Wait for Alpine to show the panel before scrolling to the heading
++    requestAnimationFrame(() => requestAnimationFrame(() => target.scrollIntoView()));
++    return panel.dataset.tab;
++  }
++  return current;
++};
+diff --git a/index.md b/index.md
+new file mode 100644
+index 0000000..1686ca8
+--- /dev/null
++++ b/index.md
+@@ -0,0 +1,77 @@
++---
++layout: default
++---
++
++<!-- Tabbed home page. The GitHub tab pulls in README.md, so edit the report there.
++     The active tab is kept in the URL (#overview, #github, #contact); links to
++     headings inside a tab (e.g. #repository-inventory) open that tab first. -->
++<div x-data="{ tab: 'overview' }"
++     x-init="tab = tabFromHash($el, tab)"
++     x-on:hashchange.window="tab = tabFromHash($el, tab)"
++     class="site-tabs" markdown="1">
++
++<div class="tab-list" role="tablist" aria-label="Site sections">
++  <button type="button" role="tab" class="tab-btn" id="tab-overview" aria-controls="panel-overview"
++          x-bind:aria-selected="tab === 'overview'" x-bind:class="{ 'is-active': tab === 'overview' }"
++          x-on:click="tab = 'overview'; history.replaceState(null, '', '#overview')">Overview</button>
++  <button type="button" role="tab" class="tab-btn" id="tab-github" aria-controls="panel-github"
++          x-bind:aria-selected="tab === 'github'" x-bind:class="{ 'is-active': tab === 'github' }"
++          x-on:click="tab = 'github'; history.replaceState(null, '', '#github')">GitHub</button>
++  <button type="button" role="tab" class="tab-btn" id="tab-contact" aria-controls="panel-contact"
++          x-bind:aria-selected="tab === 'contact'" x-bind:class="{ 'is-active': tab === 'contact' }"
++          x-on:click="tab = 'contact'; history.replaceState(null, '', '#contact')">Contact</button>
++</div>
++
++<div x-show="tab === 'overview'" data-tab="overview" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview" class="tab-panel" markdown="1">
++
++# Matthew · Love the Code
++
++Web software for recovery fellowships and small businesses: WordPress plugins, Angular front ends and Java web apps, plus the self-hosted servers they run on.
++
++<div class="grid gap-4 md:grid-cols-3 my-6" markdown="1">
++<div class="rounded-lg border border-edge bg-panel p-4" markdown="1">
++
++### Code4Recovery
++
++Contributor to the 12 Step Meeting List plugin since 2017. Author of the TSML-Ang and BMLT-Angular meeting finders.
++
++</div>
++<div class="rounded-lg border border-edge bg-panel p-4" markdown="1">
++
++### Shipped upstream
++
++schema.org `Event` data for meetings (PR #2028), released in **TSML v3.19.20**.
++
++</div>
++<div class="rounded-lg border border-edge bg-panel p-4" markdown="1">
++
++### JSP / Java
++
++A hand-built Servlet/JSP site with a MariaDB backend, running on Tomcat.
++
++</div>
++</div>
++
++<p>
++  <button type="button" class="tab-link" x-on:click="tab = 'github'; history.replaceState(null, '', '#github'); window.scrollTo({ top: 0 })">Read the full GitHub report →</button>
++</p>
++
++</div>
++
++<div x-show="tab === 'github'" x-cloak data-tab="github" id="panel-github" role="tabpanel" aria-labelledby="tab-github" class="tab-panel" markdown="1">
++
++{% include_relative README.md %}
++
++</div>
++
++<div x-show="tab === 'contact'" x-cloak data-tab="contact" id="panel-contact" role="tabpanel" aria-labelledby="tab-contact" class="tab-panel" markdown="1">
++
++## Contact
++
++Feel free to contact Matthew about any matters of web development: a project, this work, or a role.
++
++{% include contact-modal.html %}
++
++</div>
++
++</div>
+-- 
+2.43.0
+
