@@ -30,6 +30,7 @@
 | [`bmlt-angular`](https://github.com/code4recovery/bmlt-angular) | **code4recovery** | Original | TypeScript (Angular) | 5 of 5 | Oct 2026 |
 
 </div>
+
 ---
 
 <div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
@@ -108,6 +109,7 @@ A version of TSML-Ang for Narcotics Anonymous, built for **BMLT** (Basic Meeting
 4. **He follows the project's contribution workflow:** test in a copy, branch, open a PR from a fork, get review, ship in a tagged release.
 
 </div>
+
 ---
 
 <div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
@@ -142,7 +144,9 @@ web/t.jsp              → scratch/test page with inline JDBC
 **Strengths:** clear separation of controller, data, and view; reusable page fragments; per-page SEO meta tags set from the controller; content stored in the database so pages can change without redeploying; built on standard Jakarta/Javax Servlet 3.1 APIs.
 
 </div>
+
 ---
+
 <div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
 
 <div x-data="toggle" markdown="1">
@@ -167,6 +171,7 @@ web/t.jsp              → scratch/test page with inline JDBC
 </div>
 
 </div>
+
 ---
 
 <div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
