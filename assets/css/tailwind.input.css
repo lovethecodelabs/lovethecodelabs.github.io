@@ -1,0 +1,22 @@
+/* Tailwind CSS source. GitHub Actions compiles this to assets/css/tailwind.css
+   (npm run build:css) before Jekyll builds the site. Don't edit tailwind.css.
+
+   Preflight (Tailwind's CSS reset) is left out so the Hacker theme's typography,
+   tables and lists keep their styling. Utilities are !important so they win over
+   the theme's unlayered CSS (e.g. its link and heading colors). */
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities) important;
+
+/* Files scanned for class names (paths relative to this file) */
+@source "../../README.md";
+@source "../../*.md";
+@source "../../_includes";
+@source "../js";
+
+/* Hacker theme colors as utilities: text-hacker, bg-panel, border-edge */
+@theme {
+  --color-hacker: #b5e853;
+  --color-panel: #1b1b1b;
+  --color-edge: #333333;
+}

@@ -3,3 +3,11 @@ plugins:
 - jekyll-remote-theme
 title: Matthew's Github
 description: 
+
+# Build tooling, not site content
+exclude:
+  - node_modules
+  - package.json
+  - package-lock.json
+  - assets/css/tailwind.input.css
+  - .gitignore

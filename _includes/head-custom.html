@@ -3,6 +3,9 @@
 <!-- Keep the theme's own color meta tags -->
 {% include head-custom-theme-colors.html %}
 
+<!-- Tailwind utilities, compiled by GitHub Actions from assets/css/tailwind.input.css -->
+<link rel="stylesheet" href="{{ '/assets/css/tailwind.css?v=' | append: site.github.build_revision | relative_url }}">
+
 <!-- Hide Alpine-controlled elements until Alpine has started -->
 <style>[x-cloak] { display: none !important; }</style>
 
