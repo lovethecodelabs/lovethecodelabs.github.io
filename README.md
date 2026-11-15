@@ -17,7 +17,7 @@
 
 ---
 
-<div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
+<div x-data="reveal" x-intersect.once="show" :class="transitionClasses" class="transition-all duration-700 ease-out">
 
 ## 2. Repository Inventory
 
@@ -33,7 +33,7 @@
 
 ---
 
-<div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
+<div x-data="reveal" x-intersect.once="show" :class="transitionClasses" class="transition-all duration-700 ease-out">
 
 ## 3. Code4Recovery Contributions
 
@@ -74,7 +74,7 @@ The change was first tested in his own copy as PRs #17 and #18 (`feature/better-
 
 ---
 
-<div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
+<div x-data="reveal" x-intersect.once="show" :class="transitionClasses" class="transition-all duration-700 ease-out">
 
 ### 3.2 `code4recovery/tsml-angular`: TSML-Ang
 
@@ -91,7 +91,7 @@ An Angular 22 version of Code4Recovery's React meeting finder, [`tsml-ui`](https
 
 ---
 
-<div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
+<div x-data="reveal" x-intersect.once="show" :class="transitionClasses" class="transition-all duration-700 ease-out">
 
 ### 3.3 `code4recovery/bmlt-angular`: NA meeting finder
 
@@ -105,7 +105,7 @@ A version of TSML-Ang for Narcotics Anonymous, built for **BMLT** (Basic Meeting
 
 ---
 
-<div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
+<div x-data="reveal" x-intersect.once="show" :class="transitionClasses" class="transition-all duration-700 ease-out">
 
 ### 3.4 What the Code4Recovery work shows
 
@@ -118,7 +118,7 @@ A version of TSML-Ang for Narcotics Anonymous, built for **BMLT** (Basic Meeting
 
 ---
 
-<div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
+<div x-data="reveal" x-intersect.once="show" :class="transitionClasses" class="transition-all duration-700 ease-out">
 
 ## 4. JSP / Java Programming: `webapp-jsp-tomcat`
 
@@ -130,7 +130,7 @@ A small, hand-written content site for "Matthew's Business". It uses no framewor
 
 ---
 
-<div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
+<div x-data="reveal" x-intersect.once="show" :class="transitionClasses" class="transition-all duration-700 ease-out">
 
 ### 4.1 Architecture
 
@@ -157,15 +157,15 @@ web/t.jsp              → scratch/test page with inline JDBC
 
 ---
 
-<div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
+<div x-data="reveal" x-intersect.once="show" :class="transitionClasses" class="transition-all duration-700 ease-out">
 
 <div x-data="toggle" markdown="1">
 
-<h3 x-on:click="open = !open" style="cursor: pointer;">
-  4.2 Code review: issues found <span x-text="open ? '▾' : '▸'"></span>
-</h3>
 
-<div x-show="open" x-cloak markdown="1">
+###  4.2 Code review: issues found:
+
+
+
 | Severity | Issue | Where | Fix |
 | --- | --- | --- | --- |
 | 🔴 **Critical** | **Database username and password are hard-coded in a public repo**, in the JDBC URL and in a commented-out block | `src/PageDAO.java` (2×), `web/t.jsp` | **Change the `matthewsb_usr` password now.** Then move credentials into a Tomcat JNDI `DataSource` in `context.xml`, which is kept out of git. Deleting the lines isn't enough, because the credentials stay in git history. |
@@ -178,13 +178,10 @@ web/t.jsp              → scratch/test page with inline JDBC
 | ⚪ Low | Uses `javax.servlet` (Tomcat ≤ 9) | — | Tomcat 10+ requires moving to `jakarta.servlet`. |
 
 </div>
-</div>
-
-</div>
 
 ---
 
-<div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
+<div x-data="reveal" x-intersect.once="show" :class="transitionClasses" class="transition-all duration-700 ease-out">
 
 ### 4.3 What the JSP work shows
 
