@@ -17,7 +17,7 @@
 
 ---
 
-<div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
+<div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" class="shown ? 'opacity-100' : 'opacity-0'">
 
 ## 2. Repository Inventory
 
@@ -33,7 +33,7 @@
 
 ---
 
-<div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" :class="shown ? 'opacity-100' : 'opacity-0'">
+<div x-data="{ shown: false }" x-intersect.once="shown = true" class="transition-opacity duration-700" class="shown ? 'opacity-100' : 'opacity-0'">
 
 ## 3. Code4Recovery Contributions
 
