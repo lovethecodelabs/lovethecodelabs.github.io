@@ -6,7 +6,7 @@
 // Controls used by the Alpine.js components in assets/js/site.js,
 // styled to match the Hacker theme.
 input[type="search"],
-#main_content button:not(.btn-sheen) {
+#main_content button:not(.btn-sheen):not(.tab-btn):not(.tab-link) {
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
   font-size: 14px;
   color: #eaeaea;
@@ -28,7 +28,7 @@ input[type="search"] {
   }
 }
 
-#main_content button:not(.btn-sheen) {
+#main_content button:not(.btn-sheen):not(.tab-btn):not(.tab-link) {
   cursor: pointer;
   color: #b5e853;
 
@@ -211,6 +211,7 @@ a.btn-sheen:visited {
   th,
   td {
     min-width: 9rem;
+    vertical-align: top;   // labels line up with the first line of long cells
   }
 
   // First column (usually a name or label) stays on one line
@@ -219,4 +220,69 @@ a.btn-sheen:visited {
     min-width: 0;
     white-space: nowrap;
   }
+}
+// ---------------------------------------------------------------------------
+// Tabs on the home page (index.md)
+// ---------------------------------------------------------------------------
+.tab-list {
+  display: flex;
+  gap: 4px;
+  margin: 0 0 24px 0;
+  border-bottom: 1px dashed #b5e853;
+  overflow-x: auto;          // tabs scroll instead of wrapping on very small screens
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
+
+.tab-btn {
+  flex: 0 0 auto;
+  margin: 0 0 -1px 0;
+  padding: 10px 18px;
+  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+  font-size: 15px;
+  color: #999;
+  background: transparent;
+  border: 1px solid transparent;
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+  cursor: pointer;
+  transition: color 0.15s ease, background 0.15s ease;
+
+  &::before { content: "$ "; color: #555; }
+
+  &:hover { color: #eaeaea; }
+
+  &.is-active {
+    color: #b5e853;
+    background: #1b1b1b;
+    border-color: #b5e853;
+    border-style: dashed;
+    border-bottom: 1px solid #1b1b1b;   // merges the active tab into the panel
+    &::before { color: #b5e853; }
+  }
+
+  &:focus-visible {
+    outline: 2px solid #b5e853;
+    outline-offset: -2px;
+  }
+}
+
+.tab-link {
+  padding: 0;
+  font: inherit;
+  color: #63c0f5;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  &:hover { color: #b5e853; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .tab-panel { animation: tab-fade-in 0.2s ease-out; }
+}
+
+@keyframes tab-fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: none; }
 }

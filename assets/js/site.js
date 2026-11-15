@@ -160,3 +160,21 @@ document.addEventListener('alpine:init', () => {
     wrapTables();
   }
 })();
+
+// Tabs (index.md): pick the tab named in the URL hash.
+// - #overview, #github, #contact  -> that tab
+// - #some-heading inside a tab    -> open that tab, then scroll to the heading
+// - anything else / no hash       -> keep the current tab
+window.tabFromHash = function (root, current) {
+  const id = decodeURIComponent(location.hash.slice(1));
+  if (!id) return current;
+  if (root.querySelector('[data-tab="' + CSS.escape(id) + '"]')) return id;
+  const target = document.getElementById(id);
+  const panel = target && target.closest('[data-tab]');
+  if (panel && root.contains(panel)) {
+    // Wait for Alpine to show the panel before scrolling to the heading
+    requestAnimationFrame(() => requestAnimationFrame(() => target.scrollIntoView()));
+    return panel.dataset.tab;
+  }
+  return current;
+};
