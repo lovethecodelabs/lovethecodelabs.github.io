@@ -186,4 +186,8 @@ This site, [lovethecode.cloud](https://lovethecode.cloud/), is a static site. It
 - [code4recovery/tsml-angular](https://github.com/code4recovery/tsml-angular) · [PR #2](https://github.com/code4recovery/tsml-angular/pull/2)
 - [code4recovery/bmlt-angular](https://github.com/code4recovery/bmlt-angular)
 - [Code4Recovery](https://code4recovery.org/)
+
+
+
+    {% include contact-modal.html %}
  
