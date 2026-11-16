@@ -337,7 +337,6 @@ hr {
 .header-phone:visited {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
   font-size: 18px;
   font-weight: bold;
@@ -358,9 +357,4 @@ hr {
 .header-phone:focus-visible {
   outline: 1px dashed $neon;
   outline-offset: 4px;
-}
-
-.header-phone__icon {
-  flex: none;
-  filter: drop-shadow(0 0 4px rgba($neon, 0.5));
 }
