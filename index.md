@@ -91,6 +91,8 @@ Managed SQL Databases, PHP Optimization, to emergency remediation, and Plugin an
 
 Feel free to contact Matthew about any matters of web development: a project, this work, or a role.
 
+---
+
 {% include contact-modal.html %}
 
 </div>
