@@ -66,9 +66,9 @@ Fine tuned and optimized experience managing multi tenant self-hosted solutions.
 </div>
 <div class="rounded-lg border border-edge bg-panel p-4" markdown="1">
 
-### WordPress
+### WordPress/CMS
 
-Managed SQL Databases, PHP Optimization, to emergency remediation, and PHP Plugin and Template creation.
+Managed SQL Databases, PHP Optimization, to emergency remediation, and Plugin and Template creation.
 
 </div>
 </div>
