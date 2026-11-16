@@ -188,5 +188,5 @@ This site, [lovethecode.cloud](https://lovethecode.cloud/), is a static site. It
 - [Code4Recovery](https://code4recovery.org/)
 
 <div id="contact-link">
-[Contact](#contact) 
+[Contact](/#contact) 
 </div>
