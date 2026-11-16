@@ -8,6 +8,7 @@ $header: $neon;   // the theme uses this for h1–h6
 
 @import "{{ site.theme }}";
 .container { max-width: unset!important; }
+body { margin-left: 15px; margin-right: 15px; }
 // Controls used by the Alpine.js components in assets/js/site.js,
 // styled to match the Hacker theme.
 input[type="search"],
