@@ -187,8 +187,8 @@ This site, [lovethecode.cloud](https://lovethecode.cloud/), is a static site. It
 - [code4recovery/bmlt-angular](https://github.com/code4recovery/bmlt-angular)
 - [Code4Recovery](https://code4recovery.org/)
 
-<div id="contact-link">
+<div id="contact-link" x-show="tab === 'contact'">
 
-[Contact](https://lovethecode.cloud/#contact)
+**Contact**
  
 </div>
