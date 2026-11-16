@@ -79,6 +79,8 @@ Managed SQL Databases, PHP Optimization, to emergency remediation, and Plugin an
 
 </div>
 
+---
+
 <div x-show="tab === 'github'" x-cloak data-tab="github" id="panel-github" role="tabpanel" aria-labelledby="tab-github" class="tab-panel" markdown="1">
 
 {% include_relative README.md %}
