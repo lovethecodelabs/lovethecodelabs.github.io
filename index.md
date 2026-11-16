@@ -73,13 +73,13 @@ Managed SQL Databases, PHP Optimization, to emergency remediation, and Plugin an
 </div>
 </div>
 
+---
+
 <p>
   <button type="button" id="contact-link" class="tab-link" x-on:click="tab = 'github'; history.replaceState(null, '', '#github'); window.scrollTo({ top: 0 })">Read the full GitHub report →</button>
 </p>
 
 </div>
-
----
 
 <div x-show="tab === 'github'" x-cloak data-tab="github" id="panel-github" role="tabpanel" aria-labelledby="tab-github" class="tab-panel" markdown="1">
 
