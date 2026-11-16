@@ -24,7 +24,7 @@ layout: default
 
 <div x-show="tab === 'overview'" data-tab="overview" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview" class="tab-panel" markdown="1">
 
-# Matthew · Love the Code
+# Web Development, Programming, Scripting and Coding
 
 Web software for recovery fellowships and small businesses: WordPress plugins, Angular front ends and Java web apps, plus the self-hosted servers they run on.
 
