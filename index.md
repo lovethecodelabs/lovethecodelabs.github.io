@@ -74,7 +74,7 @@ Managed SQL Databases, PHP Optimization, to emergency remediation, and Plugin an
 </div>
 
 <p>
-  <button type="button" class="tab-link" x-on:click="tab = 'github'; history.replaceState(null, '', '#github'); window.scrollTo({ top: 0 })">Read the full GitHub report →</button>
+  <button type="button" class="contact-link tab-link" x-on:click="tab = 'github'; history.replaceState(null, '', '#github'); window.scrollTo({ top: 0 })">Read the full GitHub report →</button>
 </p>
 
 </div>
