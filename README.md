@@ -187,5 +187,4 @@ This site, [lovethecode.cloud](https://lovethecode.cloud/), is a static site. It
 - [code4recovery/bmlt-angular](https://github.com/code4recovery/bmlt-angular)
 - [Code4Recovery](https://code4recovery.org/)
 
-<a id="contact-link" href="#contact" @click.prevent="activeTab = 'contact'">Contact</a>
- 
+<p><a id="contact-link" href="#contact" x-on:click.prevent="tab = 'contact'; history.replaceState(null, '', '#contact'); window.scrollTo({ top: 0 })">Contact</a></p>
