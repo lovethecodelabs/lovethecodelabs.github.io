@@ -11,3 +11,7 @@ exclude:
   - package-lock.json
   - assets/css/tailwind.input.css
   - .gitignore
+
+# Phone number shown next to "View on GitHub" (see _layouts/default.html)
+phone: "626-885-4645"
+phone_tel: "+16268854645"

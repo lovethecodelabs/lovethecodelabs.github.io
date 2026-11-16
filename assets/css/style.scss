@@ -320,3 +320,45 @@ hr {
   border-bottom-color: $neon;
   color: $neon;
 }
+// ---------------------------------------------------------------------------
+// Header row: "View on GitHub" button + phone number (see _layouts/default.html)
+// ---------------------------------------------------------------------------
+#downloads {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;   // GitHub button left, phone number right
+  gap: 12px 20px;
+}
+
+.header-phone,
+.header-phone:visited {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+  color: $neon;
+  text-decoration: none;
+  text-shadow: 0 0 6px rgba($neon, 0.45), 0 0 14px rgba($neon, 0.2);
+  transition: text-shadow 0.2s ease;
+  white-space: nowrap;
+}
+
+.header-phone:hover,
+.header-phone:focus-visible {
+  color: $neon;
+  text-shadow: 0 0 8px rgba($neon, 0.75), 0 0 20px rgba($neon, 0.35);
+}
+
+.header-phone:focus-visible {
+  outline: 1px dashed $neon;
+  outline-offset: 4px;
+}
+
+.header-phone__icon {
+  flex: none;
+  filter: drop-shadow(0 0 4px rgba($neon, 0.5));
+}
