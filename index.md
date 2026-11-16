@@ -54,7 +54,7 @@ A hand-built Servlet/JSP site with a MariaDB backend, running on Tomcat.
 
 ### Linux Server Automation
 
-Bash Scripting and SystemD Service installations and custom authoring.
+Bash Scripting and SystemD Service installations and custom authoring, in Fedora or Debian friendly environments.
 
 </div>
 <div class="rounded-lg border border-edge bg-panel p-4" markdown="1">
