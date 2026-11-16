@@ -166,6 +166,7 @@ This site, [lovethecode.cloud](https://lovethecode.cloud/), is a static site. It
 | **Alpine.js** 3.17.5 + **Focus** plugin | Adds behavior directly in the HTML, with no build step: switching tabs (with the tab kept in the URL), sections fading in as you scroll, and the contact modal with copy-to-clipboard. The Focus plugin keeps keyboard focus inside the open modal. | `assets/js/site.js`, `_includes/contact-modal.html` |
 | **Tailwind CSS** 4.3.5 | Utility classes for the modal's layout, backdrop and transitions, and for the Overview cards. Compiled during the build so only classes actually used are shipped. Tailwind's CSS reset is left out so the theme's typography stays intact. | `assets/css/tailwind.input.css` → `tailwind.css` |
 | **jsDelivr CDN** | Serves the Alpine.js files at a pinned version, so the site's JavaScript doesn't change unexpectedly. | `_includes/head-custom.html` |
+
 </div>
 ---
   
