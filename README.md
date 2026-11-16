@@ -3,7 +3,7 @@
 **Focus:** Code4Recovery contributions and JSP/Java programming
 **Compiled:** November 13, 2026
 **Method:** Repositories cloned and git history read directly; pull-request metadata taken from public GitHub pages. All commits under the account are authored as *Matthew*.
-
+ 
 ---
  
 ## 1. Summary
@@ -155,14 +155,28 @@ web/t.jsp              → scratch/test page with inline JDBC
   
 <div x-data="reveal" markdown="1">
 ## 5. Utilization of Resources
-
-- Jekyll on Github Pages 
-- Markdown for Content Storage
-- Alpine for Effects and Simplistic Styling
-- Tailwind Utilities for Modal Effects
+This site, [lovethecode.cloud](https://lovethecode.cloud/), is a static site. It has no server code and no database. All content is written in Markdown, and GitHub builds and hosts the site every time a change is pushed. Small, focused libraries add the interactive parts.
+ 
+| Resource | Role on this site | Where it lives |
+| --- | --- | --- |
+| **GitHub Pages + GitHub Actions** | Free hosting with a custom domain. On every push to `main`, a workflow installs Node, builds the Tailwind CSS, runs Jekyll, and deploys the result. | `.github/workflows/jekyll-gh-pages.yml` |
+| **Jekyll** with the **Hacker theme** (`pages-themes/hacker` v0.2.0) | Turns the Markdown files into HTML pages, and supplies the dark terminal-style layout through `jekyll-remote-theme`. Site settings such as the title and phone number live in one config file. | `_config.yml`, `_layouts/default.html`, `_includes/` |
+| **Markdown** (kramdown, GitHub-flavored) | Stores all content as plain text. This report is `README.md`, so it shows on the GitHub repo page and in the site's GitHub tab. The Overview and Contact tabs are in `index.md`. | `README.md`, `index.md` |
+| **Sass** | Compiles the theme's styles plus site overrides: the neon green accent (one `$neon` variable), the tabs, the gold button with its moving sheen, and the scrolling table frames. | `assets/css/style.scss` |
+| **Alpine.js** 3.17.5 + **Focus** plugin | Adds behavior directly in the HTML, with no build step: switching tabs (with the tab kept in the URL), sections fading in as you scroll, and the contact modal with copy-to-clipboard. The Focus plugin keeps keyboard focus inside the open modal. | `assets/js/site.js`, `_includes/contact-modal.html` |
+| **Tailwind CSS** 4.3.5 | Utility classes for the modal's layout, backdrop and transitions, and for the Overview cards. Compiled during the build so only classes actually used are shipped. Tailwind's CSS reset is left out so the theme's typography stays intact. | `assets/css/tailwind.input.css` → `tailwind.css` |
+| **jsDelivr CDN** | Serves the Alpine.js files at a pinned version, so the site's JavaScript doesn't change unexpectedly. | `_includes/head-custom.html` |
+ 
+**How a page gets built:**
+ 
+1. Content is edited in Markdown and pushed to GitHub.
+2. GitHub Actions compiles Tailwind, scanning the Markdown and includes for the classes in use.
+3. Jekyll converts the Markdown, wraps it in the theme layout, and compiles the Sass.
+4. The finished HTML, CSS and JavaScript are deployed to GitHub Pages at lovethecode.cloud.
+5. In the browser, Alpine.js starts and runs the tabs, fade-in sections and contact modal.
+**Why this stack:** content stays in plain, version-controlled Markdown. There's no server to maintain or patch. Every library is pinned to a specific version. And the page still reads correctly if JavaScript fails to load: the text is all in the HTML, and Alpine only adds behavior on top.
 </div>
 ---
-
 ### Sources
  
 - [lovethecodelabs/webapp-jsp-tomcat](https://github.com/lovethecodelabs/webapp-jsp-tomcat)
