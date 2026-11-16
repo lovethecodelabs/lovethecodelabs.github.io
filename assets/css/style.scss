@@ -248,8 +248,6 @@ a.btn-sheen:visited {
   cursor: pointer;
   transition: color 0.15s ease, background 0.15s ease;
 
-  &::before { content: "$ "; color: #555; }
-
   &:hover { color: #eaeaea; }
 
   &.is-active {
