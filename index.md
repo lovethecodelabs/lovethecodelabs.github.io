@@ -93,6 +93,8 @@ Feel free to contact Matthew about any matters of web development: a project, th
 
 ---
 
+
+
 {% include contact-modal.html %}
 
 </div>
