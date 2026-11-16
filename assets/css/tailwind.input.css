@@ -16,7 +16,7 @@
 
 /* Hacker theme colors as utilities: text-hacker, bg-panel, border-edge */
 @theme {
-  --color-hacker: #b5e853;
+  --color-hacker: #39ff14;
   --color-panel: #1b1b1b;
   --color-edge: #333333;
 }

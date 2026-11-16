@@ -1,6 +1,11 @@
 ---
 ---
 
+// Site accent color: neon green (replaces the Hacker theme's $neon).
+// Change it here and everything follows: theme headings, borders, code, tabs, tables.
+$neon: #39ff14;
+$header: $neon;   // the theme uses this for h1–h6
+
 @import "{{ site.theme }}";
 .container { max-width: unset!important; }
 // Controls used by the Alpine.js components in assets/js/site.js,
@@ -23,17 +28,17 @@ input[type="search"] {
 
   &:focus {
     outline: none;
-    border-color: #b5e853;
-    box-shadow: 0 0 5px rgba(181, 232, 83, 0.3);
+    border-color: $neon;
+    box-shadow: 0 0 5px rgba($neon, 0.3);
   }
 }
 
 #main_content button:not(.btn-sheen):not(.tab-btn):not(.tab-link) {
   cursor: pointer;
-  color: #b5e853;
+  color: $neon;
 
   &:hover {
-    border-color: #b5e853;
+    border-color: $neon;
   }
 }
 
@@ -144,7 +149,7 @@ input[type="search"] {
   }
 
   &:focus-visible {
-    outline: 2px solid #b5e853;
+    outline: 2px solid $neon;
     outline-offset: 3px;
   }
 }
@@ -186,19 +191,19 @@ a.btn-sheen:visited {
   background:
     linear-gradient(to right, #151515 30%, rgba(21, 21, 21, 0)) left center / 40px 100% no-repeat local,
     linear-gradient(to left, #151515 30%, rgba(21, 21, 21, 0)) right center / 40px 100% no-repeat local,
-    radial-gradient(farthest-side at 0 50%, rgba(181, 232, 83, 0.35), rgba(181, 232, 83, 0)) left center / 14px 100% no-repeat scroll,
-    radial-gradient(farthest-side at 100% 50%, rgba(181, 232, 83, 0.35), rgba(181, 232, 83, 0)) right center / 14px 100% no-repeat scroll;
+    radial-gradient(farthest-side at 0 50%, rgba($neon, 0.35), rgba($neon, 0)) left center / 14px 100% no-repeat scroll,
+    radial-gradient(farthest-side at 100% 50%, rgba($neon, 0.35), rgba($neon, 0)) right center / 14px 100% no-repeat scroll;
 
   // Slim scrollbar in theme colors
   scrollbar-width: thin;
-  scrollbar-color: #b5e853 #1b1b1b;
+  scrollbar-color: $neon #1b1b1b;
   &::-webkit-scrollbar { height: 8px; }
   &::-webkit-scrollbar-track { background: #1b1b1b; }
-  &::-webkit-scrollbar-thumb { background: #4a5d22; border-radius: 4px; }
-  &::-webkit-scrollbar-thumb:hover { background: #b5e853; }
+  &::-webkit-scrollbar-thumb { background: mix($neon, #151515, 40%); border-radius: 4px; }
+  &::-webkit-scrollbar-thumb:hover { background: $neon; }
 
   &:focus-visible {
-    outline: 1px dashed #b5e853;
+    outline: 1px dashed $neon;
     outline-offset: 2px;
   }
 
@@ -228,7 +233,7 @@ a.btn-sheen:visited {
   display: flex;
   gap: 4px;
   margin: 0 0 24px 0;
-  border-bottom: 1px dashed #b5e853;
+  border-bottom: 1px dashed $neon;
   overflow-x: auto;          // tabs scroll instead of wrapping on very small screens
   scrollbar-width: none;
   &::-webkit-scrollbar { display: none; }
@@ -251,16 +256,15 @@ a.btn-sheen:visited {
   &:hover { color: #eaeaea; }
 
   &.is-active {
-    color: #b5e853;
+    color: $neon;
     background: #1b1b1b;
-    border-color: #b5e853;
+    border-color: $neon;
     border-style: dashed;
     border-bottom: 1px solid #1b1b1b;   // merges the active tab into the panel
-    &::before { color: #b5e853; }
   }
 
   &:focus-visible {
-    outline: 2px solid #b5e853;
+    outline: 2px solid $neon;
     outline-offset: -2px;
   }
 }
@@ -273,7 +277,7 @@ a.btn-sheen:visited {
   border: none;
   cursor: pointer;
   text-decoration: underline;
-  &:hover { color: #b5e853; }
+  &:hover { color: $neon; }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -283,4 +287,36 @@ a.btn-sheen:visited {
 @keyframes tab-fade-in {
   from { opacity: 0; transform: translateY(4px); }
   to   { opacity: 1; transform: none; }
+}
+// ---------------------------------------------------------------------------
+// Neon green overrides for Hacker theme rules that hard-code its old green
+// ---------------------------------------------------------------------------
+$neon-glow: 0 1px 1px rgba(0, 0, 0, 0.1),
+            0 0 5px rgba($neon, 0.25),
+            0 0 12px rgba($neon, 0.15);
+
+header {
+  border-bottom-color: $neon;
+}
+
+header h1 {
+  color: $neon;
+  text-shadow: $neon-glow;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-shadow: $neon-glow;
+}
+
+pre {
+  color: $neon;
+}
+
+th {
+  border-bottom-color: $neon;
+}
+
+hr {
+  border-bottom-color: $neon;
+  color: $neon;
 }
