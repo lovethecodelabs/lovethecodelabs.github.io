@@ -26,7 +26,7 @@ layout: default
 
 # Web Development, Programming, Scripting and Coding
 
-Web software for recovery fellowships and small businesses: WordPress plugins, Angular front ends and Java web apps, plus the self-hosted servers they run on.
+Web software and tailored solutions for small businesses and individuals: WordPress plugins, Angular front ends and Java web apps, plus the self-hosted servers they run on.
 
 <div class="grid gap-4 md:grid-cols-3 my-6" markdown="1">
 <div class="rounded-lg border border-edge bg-panel p-4" markdown="1">
