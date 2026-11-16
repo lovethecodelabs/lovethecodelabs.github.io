@@ -188,6 +188,4 @@ This site, [lovethecode.cloud](https://lovethecode.cloud/), is a static site. It
 - [Code4Recovery](https://code4recovery.org/)
 
 
-
-    {% include contact-modal.html %}
- 
+[Contact](#contact) 
