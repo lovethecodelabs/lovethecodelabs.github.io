@@ -59,7 +59,7 @@ Bash Scripting and SystemD Service installations and custom authoring.
 </div>
 <div class="rounded-lg border border-edge bg-panel p-4" markdown="1">
 
-### WHM/cPanel & Webmin/VirtualMin expertise
+### WHM/cPanel & Webmin/VirtualMin
 
 Fine tuned and optimized experience managing multi tenant self-hosted solutions.
 
