@@ -50,6 +50,27 @@ schema.org `Event` data for meetings (PR #2028), released in **TSML v3.19.20**.
 A hand-built Servlet/JSP site with a MariaDB backend, running on Tomcat.
 
 </div>
+<div class="rounded-lg border border-edge bg-panel p-4" markdown="1">
+
+### Linux Server Automation
+
+Bash Scripting and SystemD Service installations and custom authoring.
+
+</div>
+<div class="rounded-lg border border-edge bg-panel p-4" markdown="1">
+
+### WHM/cPanel & Webmin/VirtualMin expertise
+
+Fine tuned and optimized experience managing multi tenant self-hosted solutions.
+
+</div>
+<div class="rounded-lg border border-edge bg-panel p-4" markdown="1">
+
+### WordPress
+
+Managed SQL Databases, PHP Optimization, to emergency remediation, and PHP Plugin and Template creation.
+
+</div>
 </div>
 
 <p>
