@@ -33,16 +33,16 @@ Web software and tailored solutions for small businesses and individuals: WordPr
 <div class="grid gap-4 md:grid-cols-3 my-6" markdown="1">
 <div class="rounded-lg border border-edge bg-panel p-4" markdown="1">
 
-### Code4Recovery
+### WHM/cPanel & Webmin/VirtualMin
 
-Contributor to the 12 Step Meeting List plugin since 2017. Author of the TSML-Ang and BMLT-Angular meeting finders.
+Fine tuned and optimized experience managing multi tenant self-hosted solutions.
 
 </div>
 <div class="rounded-lg border border-edge bg-panel p-4" markdown="1">
 
-### WHM/cPanel & Webmin/VirtualMin
+### Code4Recovery
 
-Fine tuned and optimized experience managing multi tenant self-hosted solutions.
+Contributor to the 12 Step Meeting List plugin since 2017. Author of the TSML-Ang and BMLT-Angular meeting finders.
 
 </div>
 <div class="rounded-lg border border-edge bg-panel p-4" markdown="1">
