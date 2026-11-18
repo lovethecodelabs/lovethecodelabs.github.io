@@ -89,7 +89,7 @@ Managed SQL Databases, PHP Optimization, to emergency remediation, and Plugin an
 
 <div x-show="tab === 'contact'" x-cloak data-tab="contact" id="panel-contact" role="tabpanel" aria-labelledby="tab-contact" class="tab-panel" markdown="1">
 
-## Contact
+# Contact
 
 Feel free to contact Matthew about any matters of web development: a project, this work, or a role.
 
